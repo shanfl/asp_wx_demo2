@@ -1,0 +1,56 @@
+ASP.NET微信公众平台系统 二次开发文档
+本文档只对重点部分进行说明，其他部分还请开发者自行研究，相信自己的研究出来，才会更好的二次开发
+
+
+
+本源码采用通用的多层架构
+
+文档结构如下
+
+解决方案MxWeiXinPF
+
+MxWeiXinPF.API  其他API:微信授权，微信支付API
+
+MxWeiXinPF.BLL   C#通用三层中的业务逻辑层BLL
+
+MxWeiXinPF.Common  C# 通用三层中的常用类库的封装比如request请求类
+
+MxWeiXinPF.DAL    C# 通用三层中的数据操作层
+
+MxWeiXinPF.DBUtility  C#通用三层中的数据操作层
+
+MxWeiXinPF.Model   C#通用三层中的MODEL类  本源码带有注释功能
+
+MxWeiXinPF.Templates  微信模板类：用于指定商城，官网的模版初始化
+
+MxWeiXinPF.web 前端开发方案，也就是前端展示和后台操作的主要的解决方案
+
+MxWeiXinPF.Web.UI  微信UI相关类 包含 站点绑定域名信息类，站点URL字典信息类，页面请求事件处理，管理员操作类
+
+以上是本项目最常用的类库方法
+
+
+这里重点介绍下 web类 *为重点开发对象
+
+web根目录
+
+* index.aspx 为微官网入口，参数为wid=   请各位开发者不要修改掉
+
+* templates 目录为模版目录 其中index目录为微官网模版目录开发者 可通过本文件夹定义新增微官网，具体的开发方法请参照其他官网标签
+
+tools 为一般处理程序文件夹，里面包含提交请求的一般处理程序
+
+* weixin目录为通过微信访问时所有功能文件的目录，里面包含了所有网站前台的文件，
+
+* admin 目录为后台常用功能的设置的板块 包含 相册，会员卡，点菜，LBS等等设置的文件
+
+类库文件说明
+
+Senparc.Weixin.MP.dll 为微信接口类，一切的POST 和GET方式获取的JSON以及JSON操作 都是通过此类库
+
+LitJSON.dll  为微信的JSON转换函数，微信需要POST JSON数据给微信接口，然后返回JSON为字符串的接口，C#里接口的操作类库就是通过这里的 DLL进行操作的
+
+
+不错吧www.bcb5.com
+
+
